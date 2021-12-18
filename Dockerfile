@@ -16,7 +16,7 @@ RUN apt-get install -y mercurial libperl-dev libpcre3-dev zlib1g-dev libxslt1-de
     hg update quic && \
     auto/configure `nginx -V 2>&1 | sed "s/ \-\-/ \\\ \n\t--/g" | grep "\-\-" | grep -ve opt= -e param= -e build=` \
                    --build=nginx-quic --with-debug  \
-                   --with-http_v3_module --with-http_quic_module --with-stream_quic_module \
+                   --with-http_v3_module --with-stream_quic_module \
                    --with-cc-opt="-I/src/boringssl/include" --with-ld-opt="-L/src/boringssl/build/ssl -L/src/boringssl/build/crypto" && \
     make
 
